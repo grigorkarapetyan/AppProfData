@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11542" systemVersion="16B2555" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
+    <entity name="CorporateUser" representedClassName="CorporateUser" parentEntity="User" syncable="YES">
+        <attribute name="companyName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="headquarterAddress" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="headquarterCity" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sector" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="employee" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="IndividualUser" inverseName="employer" inverseEntity="IndividualUser" syncable="YES"/>
+    </entity>
+    <entity name="Event" representedClassName="Event" syncable="YES">
+        <attribute name="eventDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="eventDescription" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="eventName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="participant" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="IndividualUser" inverseName="event" inverseEntity="IndividualUser" syncable="YES"/>
+    </entity>
+    <entity name="Group" representedClassName="Group" syncable="YES">
+        <attribute name="groupName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="specialization" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="member" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="IndividualUser" inverseName="group" inverseEntity="IndividualUser" syncable="YES"/>
+    </entity>
+    <entity name="IndividualUser" representedClassName="IndividualUser" parentEntity="User" syncable="YES">
+        <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="currentEmployer" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="currentPosition" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dateOfBirth" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="education" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="employmentStatus" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="interests" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="languages" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="skills" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="specialization" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="workExperience" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="employer" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CorporateUser" inverseName="employee" inverseEntity="CorporateUser" syncable="YES"/>
+        <relationship name="event" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Event" inverseName="participant" inverseEntity="Event" syncable="YES"/>
+        <relationship name="group" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Group" inverseName="member" inverseEntity="Group" syncable="YES"/>
+    </entity>
+    <entity name="User" representedClassName="User" syncable="YES">
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="CorporateUser" positionX="-54" positionY="18" width="128" height="135"/>
+        <element name="Event" positionX="0" positionY="153" width="128" height="105"/>
+        <element name="Group" positionX="-18" positionY="144" width="128" height="90"/>
+        <element name="IndividualUser" positionX="-36" positionY="63" width="128" height="285"/>
+        <element name="User" positionX="-63" positionY="-18" width="128" height="105"/>
+    </elements>
+</model>
